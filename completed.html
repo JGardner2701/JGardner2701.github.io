@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>James Gardner | Completed projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+    <a class="nav-logo" href="index.html">James</a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="completed.html">Completed Projects</a></li>
+        <li><a href="inprogress.html">In Progress Projects</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+</nav>
+
+<div class="page-header">
+    <h1>Completed projects</h1>
+    <p>A timeline of completed games and interactive experiences, from most to least recent.</p>
+</div>
+
+<section class="timeline" id="timeline"></section>
+
+<script>
+    const projects = [
+        {
+            month: "June",
+            year:  "2026",
+            title: "Trapped & Lost",
+            role:  ["Lead Programmer", "Cinematography Director", "Audio Engineer"],
+            teamSize: 3,
+            description:
+                "Trapped & Lost description",
+            gif1:       "",
+            gif2:       "",
+            link:       "https://youtu.be/0MAnulp7AvU?si=5KqZraUGvnl-yop1",
+            linkLabel:  "Watch on YouTube",
+        },
+        {
+            month: "May",
+            year:  "2026",
+            title: "Cyberfunk /4/4",
+            role:  ["Game Designer", "VFX Programmer", "Audio Engineer"],
+            teamSize: 6,
+            description:
+                "Add Cyberfunk description",
+            gif1:       "",
+            gif2:       "",
+            link:       "https://e2ik.itch.io/cyberfunk-44",
+            linkLabel:  "Play on Itch.io",
+        },
+        {
+            month: "March",
+            year:  "2026",
+            title: "Treasure Hunter in the Abyss",
+            role:  ["Level Designer", "Programmer"],
+            teamSize: 5,
+            description:
+                "Add description",
+            gif1:       "",
+            gif2:       "",
+            link:       "https://e2ik.itch.io/treasurehunter",
+            linkLabel:  "Play on Itch.io",
+        },
+    ];
+
+
+    const externalIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+
+    function mediaEl(src, alt) {
+        if (src) {
+            return `<img src="${src}" alt="${alt}" loading="lazy" />`;
+        }
+        return `<div class="gif-placeholder">GIF placeholder</div>`;
+    }
+
+    const container = document.getElementById('timeline');
+
+    projects.forEach((p, i) => {
+        const isOdd = i % 2 === 0;
+
+        const card = `
+    <div class="entry-card">
+      <div class="card-meta">
+        ${p.role.map(r => `<span class="card-role">${r}</span>`).join('')}
+      </div>
+      <h2>${p.title}</h2>
+      <p class="card-team"> <strong>Team Size:</strong> ${p.teamSize} ${p.teamSize === 1 ? 'person' : 'people'}</p>
+      <p>${p.description}</p>
+      <div class="card-media">
+        ${mediaEl(p.gif1, p.title + ' preview 1')}
+        ${mediaEl(p.gif2, p.title + ' preview 2')}
+      </div>
+      <a class="card-link" href="${p.link}" target="_blank" rel="noopener">
+        ${externalIcon} ${p.linkLabel}
+      </a>
+    </div>`;
+
+        const node = `
+    <div class="entry-node">
+      <div class="node-dot"></div>
+      <div class="node-date">${p.month}<br/>${p.year}</div>
+    </div>`;
+
+        const empty = `<div class="entry-empty"></div>`;
+
+        const entry = document.createElement('div');
+        entry.className = 'entry';
+        entry.innerHTML = isOdd
+            ? card + node + empty
+            : empty + node + card;
+
+        container.appendChild(entry);
+    });
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>James Gardner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .hero {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 5rem 2rem 4rem;
+        }
+        .hero-eyebrow {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1.15;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+        }
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            line-height: 1.75;
+            margin-bottom: 2.25rem;
+        }
+        .hero-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: opacity 0.15s;
+        }
+        .btn-primary:hover { opacity: 0.88; }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: background 0.15s;
+        }
+        .btn-secondary:hover { background: var(--accent-light); }
+        .divider {
+            max-width: 680px;
+            margin: 0 auto 0;
+            padding: 0 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .quick-links {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem 5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        .quick-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            text-decoration: none;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .quick-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 2px 12px rgba(74,111,165,0.08);
+        }
+        .quick-card-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+        .quick-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+        .quick-card p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a class="nav-logo" href="index.html">James Gardner</a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="completed.html">Completed Projects</a></li>
+        <li><a href="inprogress.html">In Progress Projects</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <p class="hero-eyebrow">Game Developer</p>
+    <h1>Hi, I'm James Gardner<br />Indie Games Developer</h1>
+    <p>
+        ADD DESCRIPTION HERE
+    </p>
+    <div class="hero-links">
+        <a class="btn-primary" href="completed.html">View my work</a>
+        <a class="btn-secondary" href="about.html">About me</a>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="quick-links">
+    <a class="quick-card" href="completed.html">
+        <div class="quick-card-label">Portfolio</div>
+        <h3>Completed projects</h3>
+        <p>Shipped games and interactive experiences.</p>
+    </a>
+    <a class="quick-card" href="inprogress.html">
+        <div class="quick-card-label">WIP</div>
+        <h3>In progress</h3>
+        <p>What I'm actively building right now.</p>
+    </a>
+    <a class="quick-card" href="about.html">
+        <div class="quick-card-label">Background</div>
+        <h3>About me</h3>
+        <p>Skills, tools, and a bit about who I am.</p>
+    </a>
+</div>
+
+<script src="nav.js"></script>
+</body>
+</html>
