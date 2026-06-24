@@ -308,7 +308,9 @@ body.has-bg-video .entry-node {
     color: var(--text-secondary);
     line-height: 1.65;
     margin-bottom: 1rem;
+    text-align: justify;
 }
+
 
 .card-link {
     display: inline-flex;

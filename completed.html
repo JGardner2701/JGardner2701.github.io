@@ -36,8 +36,9 @@
             title: "Trapped & Lost",
             role: ["Lead Programmer", "Cinematography Director", "Audio Engineer"],
             teamSize: 3,
-            description:
-                "Trapped & Lost description ",
+            description: "Trapped & Lost is a 3D interactive experience built in Unity. " +
+                "The experience has multiple endings and story paths based on the choices that the player picks. " +
+                "Through this project I combined my knowledge on film making, games interacting coding and audio design to create a blend of my two passions.",
             bgVideo: "/assets/videos/trapped&LostPreview.mp4",
             link: "https://youtu.be/0MAnulp7AvU?si=5KqZraUGvnl-yop1",
             linkLabel: "Watch on YouTube"
@@ -48,8 +49,9 @@
             title: "Cyberfunk /4/4",
             role: ["Game Designer", "VFX Programmer", "Audio Engineer"],
             teamSize: 6,
-            description:
-                "Add Cyberfunk description",
+            description: "Cyberfunk /4/4 is a rhythm action rougelike, where the player needs to escape a laboratory by unlocking new abilities, solving puzzles, and most important of all parrying enemy attacks to the rhythm. " +
+                "During this project, I worked with FMOD to effectively integrate rhythm mechanics and audio. " +
+                "Additionally, I also worked on the Visual effects for the game, mostly working with Lighting, Shaders and Particle systems.",
             bgVideo: "/assets/videos/cyberfunkPreview.mp4",
             link: "https://e2ik.itch.io/cyberfunk-44",
             linkLabel: "Play on Itch.io"
@@ -60,8 +62,9 @@
             title: "Treasure Hunter in the Abyss",
             role: ["Level Designer", "Programmer"],
             teamSize: 5,
-            description:
-                "Add description",
+            description: "Treasure Hunter in the Abyss was a one week project where we had to create a game using a provided game design document which was based off an unknown Atari game. " +
+                "During this project I worked on player movement and rigid bodies, I also implemented the lighting system. " +
+                "I also was one of the level designers for the project where I used my experience with precisions platformers to craft a challenging yet rewarding final level.",
             bgVideo: "/assets/videos/treasureHunterPreview.mp4",
             link: "https://e2ik.itch.io/treasurehunter",
             linkLabel: "Play on Itch.io"
@@ -73,7 +76,9 @@
             role: ["Lead Programmer", "Level Designer"],
             teamSize: 4,
             description:
-                "Add description",
+                "Time Slime is a precision platformer, that makes the most out of Unity's 2D physics engine. " +
+                "I was the lead programmer working on a majority of core features. " +
+                "Additionally, I worked as a level designer on this project, this involved me conducting multiple playtests after which I would analyse the feedback and iteratively integrate it into the game feel and level design.",
             bgVideo: "/assets/videos/timeSlimePreview.mp4",
             link: "https://agency-games.itch.io/time-cave",
             linkLabel: "Play on Itch.io"
@@ -105,7 +110,7 @@
               </div>
               <h2>${p.title}</h2>
               ${p.teamSize ? `<p class="card-team"><strong>Team Size:</strong> ${p.teamSize} ${p.teamSize === 1 ? 'person' : 'people'}</p>` : ''}
-              <p>${p.description}</p>
+              <p class="card-text">${p.description}</p>
                <a class="card-link" href="${p.link}" target="_blank" rel="noopener">
                 ${externalIcon} ${p.linkLabel}
               </a>
