@@ -446,6 +446,10 @@ body.has-bg-video .entry-node {
 }
 
 @media (max-width: 700px) {
+    .hero-section {
+        min-height: calc(100vh - 100px);
+    }
+
     .timeline::before { left: 24px; }
 
     .entry {
@@ -482,8 +486,35 @@ body.has-bg-video .entry-node {
         transform: rotate(45deg);
     }
 
-    nav { padding: 0 1rem; }
-    .nav-links { gap: 1.25rem; }
+    nav {
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 60px;
+        padding: 0.75rem 1rem;
+        gap: 0.5rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 0.82rem;
+    }
+
+    .entry-bg-video-wrap {
+        display: none;
+    }
+
+    body.has-bg-video .entry {
+        min-height: 0;
+        margin-bottom: 4rem;
+        padding: 0;
+    }
+
     .timeline { padding: 0 1rem 4rem; }
     .page-header { padding: 2.5rem 1rem 1.5rem; }
 }
