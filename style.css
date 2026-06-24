@@ -360,8 +360,8 @@ body.has-bg-video .entry-node {
 }
 
 .about-portrait {
-    width: 160px;
-    height: 160px;
+    width: 250px;
+    height: 300px;
     object-fit: cover;
     border-radius: 16px;
     border: 1px solid var(--border);
@@ -371,6 +371,7 @@ body.has-bg-video .entry-node {
 .about-intro-text {
     flex: 1;
     min-width: 0;
+    text-align: justify;
 }
 
 @media (max-width: 560px) {
@@ -415,6 +416,34 @@ body.has-bg-video .entry-node {
 
 .about-contact a:hover { text-decoration: underline; }
 
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+}
+
+.contact-label {
+    color: var(--text-muted);
+    min-width: 80px;
+    font-weight: 500;
+}
+
+.contact-list a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.contact-list a:hover {
+    text-decoration: underline;
+}
 
 @media (max-width: 700px) {
     .timeline::before { left: 24px; }
