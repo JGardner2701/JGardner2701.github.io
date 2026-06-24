@@ -9,10 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="has-bg-video">
 
 <nav>
-    <a class="nav-logo" href="index.html">James</a>
+    <a class="nav-logo" href="index.html">James Gardner</a>
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="completed.html">Completed Projects</a></li>
@@ -32,53 +32,65 @@
     const projects = [
         {
             month: "June",
-            year:  "2026",
+            year: "2026",
             title: "Trapped & Lost",
-            role:  ["Lead Programmer", "Cinematography Director", "Audio Engineer"],
+            role: ["Lead Programmer", "Cinematography Director", "Audio Engineer"],
             teamSize: 3,
             description:
-                "Trapped & Lost description",
-            gif1:       "",
-            gif2:       "",
-            link:       "https://youtu.be/0MAnulp7AvU?si=5KqZraUGvnl-yop1",
-            linkLabel:  "Watch on YouTube",
+                "Trapped & Lost description ",
+            bgVideo: "/assets/videos/trapped&LostPreview.mp4",
+            link: "https://youtu.be/0MAnulp7AvU?si=5KqZraUGvnl-yop1",
+            linkLabel: "Watch on YouTube"
         },
         {
             month: "May",
-            year:  "2026",
+            year: "2026",
             title: "Cyberfunk /4/4",
-            role:  ["Game Designer", "VFX Programmer", "Audio Engineer"],
+            role: ["Game Designer", "VFX Programmer", "Audio Engineer"],
             teamSize: 6,
             description:
                 "Add Cyberfunk description",
-            gif1:       "",
-            gif2:       "",
-            link:       "https://e2ik.itch.io/cyberfunk-44",
-            linkLabel:  "Play on Itch.io",
+            bgVideo: "/assets/videos/cyberfunkPreview.mp4",
+            link: "https://e2ik.itch.io/cyberfunk-44",
+            linkLabel: "Play on Itch.io"
         },
         {
             month: "March",
-            year:  "2026",
+            year: "2026",
             title: "Treasure Hunter in the Abyss",
-            role:  ["Level Designer", "Programmer"],
+            role: ["Level Designer", "Programmer"],
             teamSize: 5,
             description:
                 "Add description",
-            gif1:       "",
-            gif2:       "",
-            link:       "https://e2ik.itch.io/treasurehunter",
-            linkLabel:  "Play on Itch.io",
+            bgVideo: "/assets/videos/treasureHunterPreview.mp4",
+            link: "https://e2ik.itch.io/treasurehunter",
+            linkLabel: "Play on Itch.io"
         },
+        {
+            month: "May",
+            year: "2025",
+            title: "Time Slime",
+            role: ["Lead Programmer", "Level Designer"],
+            teamSize: 4,
+            description:
+                "Add description",
+            bgVideo: "/assets/videos/timeSlimePreview.mp4",
+            link: "https://agency-games.itch.io/time-cave",
+            linkLabel: "Play on Itch.io"
+        }
     ];
 
 
     const externalIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
 
-    function mediaEl(src, alt) {
-        if (src) {
-            return `<img src="${src}" alt="${alt}" loading="lazy" />`;
-        }
-        return `<div class="gif-placeholder">GIF placeholder</div>`;
+    function bgVideoEl(src) {
+        if (!src) return '';
+        return `
+            <div class="entry-bg-video-wrap">
+              <video class="entry-bg-video" autoplay muted loop playsinline>
+                <source src="${src}" type="video/mp4" />
+              </video>
+            </div>`;
     }
 
     const container = document.getElementById('timeline');
@@ -87,35 +99,31 @@
         const isOdd = i % 2 === 0;
 
         const card = `
-    <div class="entry-card">
-      <div class="card-meta">
-        ${p.role.map(r => `<span class="card-role">${r}</span>`).join('')}
-      </div>
-      <h2>${p.title}</h2>
-      <p class="card-team"> <strong>Team Size:</strong> ${p.teamSize} ${p.teamSize === 1 ? 'person' : 'people'}</p>
-      <p>${p.description}</p>
-      <div class="card-media">
-        ${mediaEl(p.gif1, p.title + ' preview 1')}
-        ${mediaEl(p.gif2, p.title + ' preview 2')}
-      </div>
-      <a class="card-link" href="${p.link}" target="_blank" rel="noopener">
-        ${externalIcon} ${p.linkLabel}
-      </a>
-    </div>`;
+            <div class="entry-card">
+              <div class="card-meta">
+                ${Array.isArray(p.role) ? p.role.map(r => `<span class="card-role">${r}</span>`).join('') : `<span class="card-role">${p.role}</span>`}
+              </div>
+              <h2>${p.title}</h2>
+              ${p.teamSize ? `<p class="card-team"><strong>Team Size:</strong> ${p.teamSize} ${p.teamSize === 1 ? 'person' : 'people'}</p>` : ''}
+              <p>${p.description}</p>
+               <a class="card-link" href="${p.link}" target="_blank" rel="noopener">
+                ${externalIcon} ${p.linkLabel}
+              </a>
+            </div>`;
 
-        const node = `
-    <div class="entry-node">
-      <div class="node-dot"></div>
-      <div class="node-date">${p.month}<br/>${p.year}</div>
-    </div>`;
+                const node = `
+            <div class="entry-node">
+              <div class="node-dot"></div>
+              <div class="node-date">${p.month}<br/>${p.year}</div>
+            </div>`;
 
         const empty = `<div class="entry-empty"></div>`;
 
         const entry = document.createElement('div');
         entry.className = 'entry';
-        entry.innerHTML = isOdd
+        entry.innerHTML = (isOdd
             ? card + node + empty
-            : empty + node + card;
+            : empty + node + card) + bgVideoEl(p.bgVideo);
 
         container.appendChild(entry);
     });

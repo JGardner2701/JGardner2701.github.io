@@ -12,7 +12,7 @@
 <body>
 
 <nav>
-    <a class="nav-logo" href="index.html">James</a>
+    <a class="nav-logo" href="index.html">James Gardner</a>
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="completed.html">Completed Projects</a></li>
@@ -32,26 +32,41 @@
     const projects = [
         {
             month: "TBD",
-            year:  "2026",
+            year: "2026",
             title: "Terminal Horizon",
-            role:  ["Programmer"],
+            role: ["Programmer"],
             teamSize: 60,
             description:
                 "Add Description",
-            gif1:      "",
-            gif2:      "",
-            link:      "https://store.steampowered.com/app/4358600/Terminal_Horizon/",
+            link:  "https://store.steampowered.com/app/4358600/Terminal_Horizon/",
             linkLabel: "Wishlist on Steam",
+        },
+        {
+            month: "TBD",
+            year: "2026",
+            title: "Unnamed Unreal Project",
+            role: ["Lead Programmer"],
+            teamSize: 2,
+            description:
+                "Add Description",
+            link:  "",
+            linkLabel: "Not Yet Available",
+        },
+        {
+            month: "TBD",
+            year: "2026",
+            title: "Unnamed Unity Project",
+            role: ["Level Designer", "Programmer"],
+            teamSize: 6,
+            description:
+                "Add Description",
+            link:  "",
+            linkLabel: "Not Yet Available",
         },
 
     ];
 
     const externalIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
-
-    function mediaEl(src, alt) {
-        if (src) return `<img src="${src}" alt="${alt}" loading="lazy" />`;
-        return `<div class="gif-placeholder">GIF placeholder</div>`;
-    }
 
     const container = document.getElementById('timeline');
 
@@ -63,26 +78,22 @@
             : '';
 
         const card = `
-    <div class="entry-card">
-      <div class="card-meta">
-        ${p.role.map(r => `<span class="card-role">${r}</span>`).join('')}
-        <span class="card-status in-progress">In progress</span>
-      </div>
-      <h2>${p.title}</h2>
-      <p class="card-team"> <strong>Team Size:</strong> ${p.teamSize} ${p.teamSize === 1 ? 'person' : 'people'}</p>
-      <p>${p.description}</p>
-      <div class="card-media">
-        ${mediaEl(p.gif1, p.title + ' preview 1')}
-        ${mediaEl(p.gif2, p.title + ' preview 2')}
-      </div>
-      ${linkBtn}
-    </div>`;
+            <div class="entry-card">
+              <div class="card-meta">
+                ${p.role.map(r => `<span class="card-role">${r}</span>`).join('')}
+                <span class="card-status in-progress">In progress</span>
+              </div>
+              <h2>${p.title}</h2>
+              <p class="card-team"> <strong>Team Size:</strong> ${p.teamSize} ${p.teamSize === 1 ? 'person' : 'people'}</p>
+              <p>${p.description}</p>
+              ${linkBtn}
+            </div>`;
 
         const node = `
-    <div class="entry-node">
-      <div class="node-dot"></div>
-      <div class="node-date">${p.month}<br/>${p.year}</div>
-    </div>`;
+            <div class="entry-node">
+              <div class="node-dot"></div>
+              <div class="node-date">${p.month}<br/>${p.year}</div>
+            </div>`;
 
         const empty = `<div class="entry-empty"></div>`;
 
