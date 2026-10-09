@@ -5,7 +5,7 @@
     --accent-light: #f6f0e8;
     --line: #D1D9E6;
     --text-primary: #af4d02;
-    --text-secondary: #423733;
+    --text-secondary: #856a5e;
     --text-secondary-light: #f1c7a2;
     --text-muted: #9e8f8a;
     --bg: #FAFAFA;
@@ -244,6 +244,25 @@ nav {
     width: 13px;
     height: 13px;
     flex-shrink: 0;
+}
+
+.card-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+}
+
+.card-label.award {
+    color: #5c3d00;
+    background: linear-gradient(135deg, #ffe08a, #f5b942);
+    border: 1px solid rgba(180, 120, 0, 0.35);
+}
+
+.card-label.info {
+    color: #fff;
+    background: var(--accent);
 }
 
 .about-wrap {

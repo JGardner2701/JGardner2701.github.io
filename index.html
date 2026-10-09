@@ -160,7 +160,7 @@
             <img class="about-portrait" src="assets/images/portrait.jpg" alt="Portrait of James Gardner" />
             <div class="about-intro-text">
                 <p>
-                    I'm James, a game developer based in Australia. I work primarily in Unity, using C# to craft everything from precision platformers, to rhythm roguelikes, to 3D horror experiences.
+                    I'm James, a game developer based in Australia. I have been studying and making games for the past 3 years, I’ve worked on teams ranging from two-person projects to an indie studio of over 60 people.
                 </p>
                 <p>
                     I strive to create games that effectively bring out the best in players through meaningful challenge. I am intrigued by how games utilise player psychology and flow state dynamics to create engaging experiences that teach a player skills that can be used outside of a game.
@@ -178,11 +178,15 @@
             <span class="skill-tag">C++</span>
             <span class="skill-tag">Javascript</span>
             <span class="skill-tag">GLSL</span>
-            <span class="skill-tag">ScriptableObjects</span>
+            <span class="skill-tag">Multiplayer Networking</span>
+            <span class="skill-tag">Scriptable Objects</span>
+            <span class="skill-tag">Blueprints</span>
             <span class="skill-tag">FMOD</span>
+            <span class="skill-tag">Behvaior Graph</span>
             <span class="skill-tag">Cinemachine</span>
             <span class="skill-tag">Shader Graph</span>
             <span class="skill-tag">Rigidbodies</span>
+            <span class="skill-tag">Quartz</span>
         </div>
 
         <h2>Background</h2>
@@ -224,7 +228,7 @@
 
     <div id="timeline-inprogress">
         <div class="projects-sub-header">
-            <h2>In Progress</h2>
+            <h2>In Progress Projects</h2>
             <p>Projects I'm actively working on or planned future projects.</p>
         </div>
         <div class="project-list" id="timeline-ip"></div>
@@ -254,7 +258,7 @@
     const inProgressProjects = [
         {
             month: "TBD",
-            year: "2026",
+            year: "2028",
             title: "Terminal Horizon",
             role: ["Programmer"],
             teamSize: 60,
@@ -262,29 +266,49 @@
                 "Terminal Horizon is a cyberpunk turn-based tactics roguelike and is my first experience working in an indie studio environment. " +
                 "The Playmakers Development Team is a mid size indie studio where members are split into smaller teams based on discipline. " +
                 "I work as a programmer focusing mainly on the games combat systems. " +
-                "Since the game has not yet released I cannot share too much information in regards to the game itself.",
+                "Since the game has not yet released I cannot share too much information in regards to the game itself. ",
+            bgVideo: "assets/videos/terminalHorizonPreview.mp4",
             link: "https://store.steampowered.com/app/4358600/Terminal_Horizon/",
             linkLabel: "Wishlist on Steam",
         },
         {
-            month: "TBD",
+            month: "October",
             year: "2026",
-            title: "Unnamed Unreal Project",
-            role: ["Lead Programmer"],
-            teamSize: 2,
+            title: "Project Afterlight",
+            role: ["Narrative Director", "Programmer", "Audio Engineer"],
+            teamSize: 6,
             description:
-                "This project has not yet begun but it will be a 3D Unreal project focusing on AI systems, terrain generation and multiplayer networking.",
+                "Project Afterlight is a sci-fi narrative driven metroidvania. " +
+                "Made by the same team as Cyberfunk /4/4, we took everything we learnt during that project and the feedback we received to work on an even more ambitious project. " +
+                "On this project I have worked extensively on developing modular enemy AI, which can be used to create greater gameplay variety. " +
+                "The AI was developed using a combination of Unity's behavior graph and scriptable objects to achieve a high level of modularity. ",
+            bgVideo: "assets/videos/projectAfterlightPreview.mp4",
             link: "",
             linkLabel: "Not Yet Available",
         },
         {
-            month: "TBD",
+            month: "October",
             year: "2026",
-            title: "Unnamed Unity Project",
-            role: ["Level Designer", "Programmer"],
-            teamSize: 6,
+            title: "Ecosystem Simulator",
+            role: ["Lead Programmer"],
+            teamSize: 2,
             description:
-                "This project has not yet begun but it will be the final capstone project of my degree and will be expanded to the scope where it can be published on Steam.",
+                "Ecosystem Simulator is an Unreal Engine 5 project aiming to create emergent ecosystem environments. " +
+                "To do this I am using GOAP ai to create animals with distinct and emergent behaviors. " +
+                "By combining GOAP ai with procedurally generated biomes and full networking functionality, We aim to create the technical basis that can be used in any number of future project. ",
+            link: "",
+            linkLabel: "Not Yet Available",
+        },
+        {
+            month: "October",
+            year: "2026",
+            title: "Toki Seme",
+            role: ["Level Designer", "Programmer"],
+            teamSize: 3,
+            description:
+                "Toki Seme is an academically backed Language game that aims to assist young monolingual adults in learning a second language. " +
+                "By learning the core skills that language learning requires in a game based in environment we hope that it will greatly aid in the motivation of learners and retention of future learning. " +
+                "For this game we are using the constructed language Toki Pona, which was designed for its minimal nature given its distinctly foreign nature to all players regardless of language background it is the perfect language to help teach the core underlying skills. ",
             link: "",
             linkLabel: "Not Yet Available",
         },
@@ -310,9 +334,11 @@
             year: "2026",
             title: "Cyberfunk /4/4",
             role: ["Game Designer", "VFX Programmer", "Audio Engineer"],
+            labels: [{text: "Award Winning", type: "award"}],
             teamSize: 6,
             description:
-                "Cyberfunk /4/4 is a rhythm action roguelike, where the player needs to escape a laboratory by unlocking new abilities, solving puzzles, and most important of all parrying enemy attacks to the rhythm. " +
+                "Cyberfunk /4/4 is an award winning rhythm action roguelike, where the player needs to escape a laboratory by unlocking new abilities, solving puzzles, and most important of all parrying enemy attacks to the rhythm. " +
+                "This game won the Industry Ready Award at the UTS TechFest 2026. "+
                 "During this project, I worked with FMOD to effectively integrate rhythm mechanics and audio. " +
                 "Additionally, I also worked on the Visual effects for the game, mostly working with Lighting, Shaders and Particle systems.",
             bgVideo: "assets/videos/cyberfunkPreview.mp4",
@@ -365,6 +391,11 @@
         const linkBtn = p.link
             ? `<a class="card-link" href="${p.link}" target="_blank" rel="noopener">${externalIcon} ${p.linkLabel}</a>` : '';
 
+        const labels = (p.labels || []).map(l => {
+            const label = typeof l === 'string' ? { text: l } : l;
+            return `<span class="card-label ${label.type || 'award'}">${label.text}</span>`;
+        }).join('');
+
         const bg = p.bgVideo
             ? `<video class="project-bg" autoplay muted loop playsinline preload="metadata">
                <source src="${p.bgVideo}" type="video/mp4" />
@@ -377,7 +408,7 @@
         <div class="project-tint"></div>
         <div class="project-panel">
             <div class="project-date">${p.month} ${p.year}</div>
-            <div class="card-meta">${roles}${statusBadge}</div>
+            <div class="card-meta">${roles}${statusBadge}${labels}</div>
             <h2>${p.title}</h2>
             ${team}
             <p>${p.description}</p>
