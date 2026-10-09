@@ -27,9 +27,7 @@ body {
 }
 
 nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+
     background: rgba(250,250,250,0.92);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
@@ -38,6 +36,11 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 }
 
 .nav-logo {
@@ -99,8 +102,7 @@ body.has-bg-video .timeline {
     z-index: 1;
 }
 
-body.has-bg-video .page-header h1,
-body.has-bg-video nav {
+body.has-bg-video .page-header h1 {
     position: relative;
     z-index: 2;
 }
@@ -140,6 +142,32 @@ body.has-bg-video .node-date {
     gap: 0;
     margin-bottom: 4rem;
     align-items: start;
+}
+
+.timeline-continuous {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.timeline-continuous::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: var(--timeline-w);
+    background: var(--line);
+    z-index: 1;
+}
+
+.timeline-continuous .timeline::before {
+    display: none;
+}
+
+.timeline-continuous .section-divider {
+    border-color: transparent;
 }
 
 
@@ -387,6 +415,46 @@ body.has-bg-video .entry:not(:has(.entry-bg-video-wrap)) {
     text-align: justify;
 }
 
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+.footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
 @media (max-width: 560px) {
     .about-intro {
         flex-direction: column;
@@ -563,4 +631,8 @@ body.has-bg-video .entry:not(:has(.entry-bg-video-wrap)) {
 
     .timeline { padding: 0 1rem 4rem; }
     .page-header { padding: 2.5rem 1rem 1.5rem; }
+
+    .timeline-continuous::before {
+        display: none;
+    }
 }
