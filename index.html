@@ -172,6 +172,7 @@
         <div class="skills-grid">
             <span class="skill-tag">Git</span>
             <span class="skill-tag">Unity</span>
+            <span class="skill-tag">Unreal Engine</span>
             <span class="skill-tag">C#</span>
             <span class="skill-tag">Java</span>
             <span class="skill-tag">Python</span>
@@ -226,20 +227,20 @@
 
 <div id="projects" style="scroll-margin-top: 60px;">
 
-    <div id="timeline-inprogress">
+    <div id="timeline-featured">
         <div class="projects-sub-header">
-            <h2>In Progress Projects</h2>
-            <p>Projects I'm actively working on or planned future projects.</p>
+            <h2>Featured Projects</h2>
+            <p>Milestone projects that define my career and showcase my core strengths in game development.</p>
         </div>
-        <div class="project-list" id="timeline-ip"></div>
+        <div class="project-list" id="timeline-f"></div>
     </div>
 
-    <div id="timeline-completed">
+    <div id="timeline-additional">
         <div class="projects-sub-header">
-            <h2>Completed Projects</h2>
-            <p>Completed games and interactive experiences, from most to least recent.</p>
+            <h2>Additional Projects</h2>
+            <p>More work and independent projects from my game development journey.</p>
         </div>
-        <div class="project-list" id="timeline-c"></div>
+        <div class="project-list" id="timeline-a"></div>
     </div>
 
     <footer class="site-footer">
@@ -255,12 +256,13 @@
 </div>
 
 <script>
-    const inProgressProjects = [
+    const featuredProjects = [
         {
             month: "TBD",
             year: "2028",
             title: "Terminal Horizon",
             role: ["Programmer"],
+            labels: [{text: "In Progress", type: "progress"}],
             teamSize: 60,
             description:
                 "Terminal Horizon is a cyberpunk turn-based tactics roguelike and is my first experience working in an indie studio environment. " +
@@ -270,64 +272,6 @@
             bgVideo: "assets/videos/terminalHorizonPreview.mp4",
             link: "https://store.steampowered.com/app/4358600/Terminal_Horizon/",
             linkLabel: "Wishlist on Steam",
-        },
-        {
-            month: "October",
-            year: "2026",
-            title: "Project Afterlight",
-            role: ["Narrative Director", "Programmer", "Audio Engineer"],
-            teamSize: 6,
-            description:
-                "Project Afterlight is a sci-fi narrative driven metroidvania. " +
-                "Made by the same team as Cyberfunk /4/4, we took everything we learnt during that project and the feedback we received to work on an even more ambitious project. " +
-                "On this project I have worked extensively on developing modular enemy AI, which can be used to create greater gameplay variety. " +
-                "The AI was developed using a combination of Unity's behavior graph and scriptable objects to achieve a high level of modularity. ",
-            bgVideo: "assets/videos/projectAfterlightPreview.mp4",
-            link: "",
-            linkLabel: "Not Yet Available",
-        },
-        {
-            month: "October",
-            year: "2026",
-            title: "Ecosystem Simulator",
-            role: ["Lead Programmer"],
-            teamSize: 2,
-            description:
-                "Ecosystem Simulator is an Unreal Engine 5 project aiming to create emergent ecosystem environments. " +
-                "To do this I am using GOAP ai to create animals with distinct and emergent behaviors. " +
-                "By combining GOAP ai with procedurally generated biomes and full networking functionality, We aim to create the technical basis that can be used in any number of future project. ",
-            link: "",
-            linkLabel: "Not Yet Available",
-        },
-        {
-            month: "October",
-            year: "2026",
-            title: "Toki Seme",
-            role: ["Level Designer", "Programmer"],
-            teamSize: 3,
-            description:
-                "Toki Seme is an academically backed Language game that aims to assist young monolingual adults in learning a second language. " +
-                "By learning the core skills that language learning requires in a game based in environment we hope that it will greatly aid in the motivation of learners and retention of future learning. " +
-                "For this game we are using the constructed language Toki Pona, which was designed for its minimal nature given its distinctly foreign nature to all players regardless of language background it is the perfect language to help teach the core underlying skills. ",
-            link: "",
-            linkLabel: "Not Yet Available",
-        },
-    ];
-
-    const completedProjects = [
-        {
-            month: "June",
-            year: "2026",
-            title: "Trapped & Lost",
-            role: ["Lead Programmer", "Cinematography Director", "Audio Engineer"],
-            teamSize: 3,
-            description:
-                "Trapped & Lost is a 3D interactive experience built in Unity. " +
-                "The experience has multiple endings and story paths based on the choices that the player picks. " +
-                "Through this project I combined my knowledge on film making, games interacting coding and audio design to create a blend of my two passions.",
-            bgVideo: "assets/videos/trapped&LostPreview.mp4",
-            link: "https://youtu.be/0MAnulp7AvU?si=5KqZraUGvnl-yop1",
-            linkLabel: "Watch on YouTube",
         },
         {
             month: "May",
@@ -344,6 +288,67 @@
             bgVideo: "assets/videos/cyberfunkPreview.mp4",
             link: "https://e2ik.itch.io/cyberfunk-44",
             linkLabel: "Play on Itch.io",
+        }
+    ];
+
+    const additionalProjects = [
+        {
+            month: "October",
+            year: "2026",
+            title: "Project Afterlight",
+            role: ["Narrative Director", "Programmer", "Audio Engineer"],
+            labels: [{text: "In Progress", type: "progress"}],
+            teamSize: 6,
+            description:
+                "Project Afterlight is a sci-fi narrative driven metroidvania. " +
+                "Made by the same team as Cyberfunk /4/4, we took everything we learnt during that project and the feedback we received to work on an even more ambitious project. " +
+                "On this project I have worked extensively on developing modular enemy AI, which can be used to create greater gameplay variety. " +
+                "The AI was developed using a combination of Unity's behavior graph and scriptable objects to achieve a high level of modularity. ",
+            bgVideo: "assets/videos/projectAfterlightPreview.mp4",
+            link: "",
+            linkLabel: "Not Yet Available",
+        },
+        {
+            month: "October",
+            year: "2026",
+            title: "Ecosystem Simulator",
+            role: ["Lead Programmer"],
+            labels: [{text: "In Progress", type: "progress"}],
+            teamSize: 2,
+            description:
+                "Ecosystem Simulator is an Unreal Engine 5 project aiming to create emergent ecosystem environments. " +
+                "To do this I am using GOAP ai to create animals with distinct and emergent behaviors. " +
+                "By combining GOAP ai with procedurally generated biomes and full networking functionality, We aim to create the technical basis that can be used in any number of future project. ",
+            link: "",
+            linkLabel: "Not Yet Available",
+        },
+        {
+            month: "October",
+            year: "2026",
+            title: "Toki Seme",
+            role: ["Level Designer", "Programmer"],
+            labels: [{text: "In Progress", type: "progress"}],
+            teamSize: 3,
+            description:
+                "Toki Seme is an academically backed Language game that aims to assist young monolingual adults in learning a second language. " +
+                "By learning the core skills that language learning requires in a game based in environment we hope that it will greatly aid in the motivation of learners and retention of future learning. " +
+                "For this game we are using the constructed language Toki Pona, which was designed for its minimal nature given its distinctly foreign nature to all players regardless of language background it is the perfect language to help teach the core underlying skills. ",
+            link: "",
+            linkLabel: "Not Yet Available",
+        },
+        {
+            month: "June",
+            year: "2026",
+            title: "Trapped & Lost",
+            role: ["Lead Programmer", "Cinematography Director", "Audio Engineer"],
+            teamSize: 3,
+            description:
+                "Trapped & Lost is a 3D interactive experience built in Unity. " +
+                "The experience has multiple endings and story paths based on the choices that the player picks. " +
+                "Through this project I combined my knowledge on film making, games interacting coding and audio design to create a blend of my two passions.",
+            bgVideo: "assets/videos/trapped&LostPreview.mp4",
+            link: "https://youtu.be/0MAnulp7AvU?si=5KqZraUGvnl-yop1",
+            linkLabel: "Watch on YouTube",
         },
         {
             month: "March",
@@ -382,9 +387,6 @@
         const roles = (Array.isArray(p.role) ? p.role : [p.role])
             .map(r => `<span class="card-role">${r}</span>`).join('');
 
-        const statusBadge = !p.bgVideo
-            ? `<span class="card-status in-progress">In progress</span>` : '';
-
         const team = p.teamSize
             ? `<p class="card-team"><strong>Team Size:</strong> ${p.teamSize} ${p.teamSize === 1 ? 'person' : 'people'}</p>` : '';
 
@@ -408,7 +410,7 @@
         <div class="project-tint"></div>
         <div class="project-panel">
             <div class="project-date">${p.month} ${p.year}</div>
-            <div class="card-meta">${roles}${statusBadge}${labels}</div>
+            <div class="card-meta">${roles}${labels}</div>
             <h2>${p.title}</h2>
             ${team}
             <p>${p.description}</p>
@@ -442,8 +444,8 @@
         });
     }
 
-    renderTimeline(inProgressProjects, 'timeline-ip');
-    renderTimeline(completedProjects,  'timeline-c');
+    renderTimeline(featuredProjects, 'timeline-f');
+    renderTimeline(additionalProjects,  'timeline-a');
 </script>
 
 <script src="nav.js"></script>

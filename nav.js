@@ -1,5 +1,5 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section[id], div[id="timeline-completed"], div[id="timeline-inprogress"]');
+    const sections = document.querySelectorAll('section[id], div[id="timeline-additional"], div[id="timeline-featured"]');
     const navLinks = document.querySelectorAll('.nav-links a');
 
     navLinks.forEach(link => {
@@ -22,7 +22,7 @@
                     const href = link.getAttribute('href');
                     if (
                         href === `#${id}` ||
-                        (href === '#projects' && (id === 'timeline-completed' || id === 'timeline-inprogress'))
+                        (href === '#projects' && (id === 'timeline-additional' || id === 'timeline-featured'))
                     ) {
                         link.classList.add('active');
                     }
